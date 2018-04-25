@@ -1,0 +1,53 @@
+<section class="bg-color-white">
+  <div class="text-center">
+    <h1>{{vm.course._id ? 'Edit Course' : 'New Course'}}</h1>
+  </div>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+  <changecourseicon></changecourseicon>
+  </div>
+  </div>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form name="vm.form.courseForm" class="form-horizontal" ng-submit="vm.save(vm.form.courseForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <!-- <label class="control-label" for="name">Name</label> -->
+          <input name="name" type="text" ng-model="vm.course.name" id="name" class="form-control inputText" required/>
+          <span class="floating-label">Enter Course Name</span>
+          <div ng-messages="vm.form.courseForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Course name is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+        <textarea class="form-control" ng-model="vm.course.content" rows="8" cols="60" placeholder="Enter the Course Content"></textarea>
+        </div>
+        <div class="form-group" show-errors>
+          <!-- <label class="control-label" for="name">Name</label> -->
+          <input name="duration" type="text" ng-model="vm.course.duration" id="duration" class="form-control" required placeholder="Enter Duration in hours" />
+          <div ng-messages="vm.form.courseForm.duration.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Duration is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <!-- <label class="control-label" for="name">Name</label> -->
+          <input name="datestart" type="text" ng-model="vm.course.nextBatch" id="datestart" class="form-control" required placeholder="Next Batch Starts On" />
+          <div ng-messages="vm.form.courseForm.datestart.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Batch Start Date is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.course._id ? 'Update Course' : 'Create Course'}}</button>
+          <a class="btn btn-primary" ui-sref="courses.list">Back</a>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,77 @@
+<section class="container" ng-controller="HeaderController">
+  <div class="navbar-header">
+    <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a ui-sref="home" class="navbar-brand menu-heading hidden-xs">Khyaathi Cloud Technologies</a>
+    <a ui-sref="home" class="navbar-brand menu-heading hidden-lg hidden-md hidden-sm">KCT</a>
+  </div>
+  <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
+    <ul class="nav navbar-nav" ng-if="menu.shouldRender(authentication.user);">
+      <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
+        <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
+        <ul ng-switch-when="dropdown" class="dropdown-menu">
+          <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
+            <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
+          </li>
+        </ul>
+        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="home">Home</a>
+      </li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="about">About</a>
+      </li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="services">Services</a>
+      </li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="courses.list">Course</a>
+      </li>
+      <!-- <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="authentication.signup">Sign Up</a>
+      </li>
+      <li class="divider-vertical"></li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="authentication.signin">Sign In</a>
+      </li> -->
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="contact">Contact</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="home">Home</a>
+      </li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="about">About</a>
+      </li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="services">Services</a>
+      </li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="courses.list">Course</a>
+      </li>
+
+      <!-- <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="authentication.signup">Sign Up</a>
+      </li>
+      <li class="divider-vertical"></li>
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="authentication.signin">Sign In</a>
+      </li> -->
+      <li ui-sref-active="active">
+        <a class="menu-color" ui-sref="contact">Contact</a>
+      </li>
+      <li ui-sref-active="active">
+        <a class="menu-color" href="" ng-click="signout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</section>

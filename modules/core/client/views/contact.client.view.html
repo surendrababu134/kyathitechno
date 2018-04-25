@@ -1,0 +1,51 @@
+<section class="bg-color-white margin-top-Value">
+  <div class="content">
+    <div class="contact">
+      <div class="container">
+        <h2>Contact us</h2>
+        <div class="google-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.3187983263444!2d78.4026069291733!3d17.49437199925091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91795aac3cdb%3A0x65acd617b237b9cd!2sKhyaathi+cloud+Technologies+%7C+Khyaathi+%7C+Python+Training+%7C+Django+Training+%7C+DevOps+Training!5e0!3m2!1sen!2sin!4v1503925074869" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div class="contact-info">
+          <div class="col-md-6 contact-grid">
+            <h4>Address 1</h4>
+            <p>#301, 4th Floor, Satyabhama Complex, Bhagyanagar Colony, Kukatpally, Landmark : Opp Kphb 1st road Lane, Besides - Apollo Hospital, Hyderabad-500072
+            </p>
+            <p>Telephone : +91 995 198 4442</p>
+            <p>Freephone : +91 966 694 1555</p>
+            <p>Email : <a href="mailto:info@example.com"> khyaathi.trainings@gmail.com</a></p>
+          </div>
+          <div class="col-md-6 contact-grid">
+            <h4>Address 2</h4>
+            <p>8-3-214/A/1,2nd Floor Opposite South India Bank Mumbai Highway Srinivasa Nagar colony West, Ameerpet , Hyderabad</p>
+            <p>Telephone: +91 966 692 1555</p>
+            <p>Freephone: +91 966 694 1555</p>
+            <p>Email : <a href="mailto:info@example.com"> khyaathi.trainings@gmail.com</a></p>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="contact-form">
+          <h4>Contact Form</h4>
+          <form name="contactForm" ng-submit="contactEmail(contactForm.$valid)" class="signin" novalidate autocomplete="off">
+            <fieldset>
+              <div class="row">
+                <div class="col-md-4"><input name="name" type="text" value="Name" style="text-transform: capitalize; " placeholder="Enter Your Name" required="" class="form-control" ng-model="contactData.name"></div>
+                <div class="col-md-4"><input name="email" class="email form-control" placeholder="Enter Your Email" type="text" value="Email" required="" ng-model="contactData.email"></div>
+                <div class="col-md-4"><input name="phone" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="text" value="Telephone" placeholder="Enter Your Phone" required="" class="form-control" ng-model="contactData.phone"></div>
+              </div>
+
+
+
+              <textarea name="tarea" type="text" placeholder="Enter Your Message" required class="form-control" ng-model="contactData.textData">Message...</textarea>
+              <!-- <input type="submit" value="Send Email" /> -->
+              <button type="submit" class="btn btn-primary" ng-disabled="disableValue">Send Email</button>
+            </fieldset>
+          </form>
+          <!-- <form name="contactForm" ng-controller="ContactController" ng-submit="contactEmail(contactForm.$valid)">
+
+          </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

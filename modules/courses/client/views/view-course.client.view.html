@@ -1,0 +1,41 @@
+<section class=" bg-color-white paddingCourse">
+  <div class="container">
+    <div class="pull-right" ng-show="vm.course.isCurrentUserOwner">
+      <a class="btn btn-primary" ui-sref="courses.edit({ courseId: vm.course._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+      <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+      <a class="btn btn-primary" ui-sref="courses.list">Back</a>
+    </div>
+    <div class="pull-right" ng-show="!vm.course.isCurrentUserOwner">
+      <a class="btn btn-primary" ui-sref="courses.list">Back</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-center">
+      <img ng-src="{{vm.course.courseIcon || 'modules/core/client/img/brand/defaultcourse.png'}}" alt="{{user.displayName}}" class="img-circle courseiconmargin" width="150px" height="150px" ng-show="vm.course.isCurrentUserOwner">
+      <img ng-src="{{vm.course.courseIcon || 'modules/core/client/img/brand/defaultcourse.png'}}" alt="{{user.displayName}}" class="img-circle coursenouser" width="150px" height="150px" ng-show="!vm.course.isCurrentUserOwner">
+      <p class="nonborderh1" ng-bind="vm.course.name"></p>
+      <h3>Duration: <span ng-bind="vm.course.duration"></span> Hours&nbsp;&nbsp;&nbsp;&nbsp;Next Batch: <span ng-bind="vm.course.nextBatch"></span></h3>
+    </div>
+  </div>
+  <!-- <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.course.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.course.user"
+            ng-bind="vm.course.user.displayName"></span>
+      <span ng-if="!vm.course.user">Deleted User</span>
+    </em>
+  </small> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <pre class="lead" ng-bind="vm.course.content"></pre>
+      </div>
+    </div>
+  </div>
+</section>
